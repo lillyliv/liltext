@@ -4,41 +4,22 @@ import json
 from .highlighting import *
 
 def initStyle(appClass):
-    # global font_size
-    # global keywords
-    # global braces
-    # global operators
+    global font_size
+    global keywords
+    global braces
+    global operators
 
-    # styleFile = open("./style/style.json")
-    # style = json.load(styleFile)
+    styleFile = open("./style/style.json")
+    style = json.load(styleFile)
     
-    # print(style["operators"])
+    #print(style["operators"])
 
-    appClass.font_size = 20
-
-    PythonHighlighter.keywords = [
-        'and', 'assert', 'break', 'class', 'continue', 'def',
-        'del', 'elif', 'else', 'except', 'exec', 'finally',
-        'for', 'from', 'global', 'if', 'import', 'in',
-        'is', 'lambda', 'not', 'or', 'pass', 'print',
-        'raise', 'return', 'try', 'while', 'yield',
-        'None', 'True', 'False',
-    ]
+    #appClass.font_size = 20
+    appClass.font_size = style["font_size"]
+    PythonHighlighter.keywords = style["keywords"]
 
     # Python operators
-    PythonHighlighter.operators = [
-        '=',
-        # Comparison
-        '==', '!=', '<', '<=', '>', '>=',
-        # Arithmetic
-        '\+', '-', '\*', '/', '//', '\%', '\*\*',
-        # In-place
-        '\+=', '-=', '\*=', '/=', '\%=',
-        # Bitwise
-        '\^', '\|', '\&', '\~', '>>', '<<',
-    ]
+    PythonHighlighter.operators = style["ops"]
 
     # Python braces
-    PythonHighlighter.braces = [
-        '\{', '\}', '\(', '\)', '\[', '\]',
-    ]
+    PythonHighlighter.braces = style["braces"]
