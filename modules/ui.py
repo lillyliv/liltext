@@ -4,7 +4,7 @@ from PyQt5.QtWidgets import *
 
 from modules.editor import *
 from modules.keyboard import *
-
+from modules.highlighting import *
 import sys
 
 def initUI(appClass):
@@ -24,6 +24,8 @@ def initUI(appClass):
     appClass.layout.addWidget(appClass.textBox)
     appClass.window.setLayout(appClass.layout)
     
+    highlight = PythonHighlighter(appClass.textBox.document())
+
     appClass.timer = QTimer()  # init filename popup box checks should also move this
     appClass.timer.timeout.connect(appClass.filenamePopupCheck)
     appClass.timer.start(100)

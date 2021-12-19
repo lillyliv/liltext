@@ -2,7 +2,7 @@
 
 Text editor and development tools by Lilly (lillyliv#5756)
 
-Version β (beta)
+Version Γ (gamma)
 
 '''
 
@@ -19,6 +19,7 @@ import threading
 from modules.filenamePopup import *
 from modules.ui import *
 from modules.hotkeys import initHotkeys
+from modules.style import initStyle
 
 class App():
     
@@ -30,6 +31,7 @@ class App():
         self.filenamePopup = False
         self.hasShownFilenamePopup = False
 
+        initStyle(self)
         initHotkeys()
 
         initUI(self)
