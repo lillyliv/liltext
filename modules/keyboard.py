@@ -6,7 +6,7 @@ from PyQt5.QtGui import *
 from PyQt5.QtWidgets import *
 
 from .save import *
-
+from .hotkeys import *
 class Keyboard():
     def __init__(self):
         print('started keyboard')
@@ -23,25 +23,19 @@ class Keyboard():
         elif(key == keyboard.Key.alt):
             alt = True
         try:
-            if ctrl == True and key.char == 's':
+            name = getHotkey(ctrl, alt, key.char)
+            if name == "save":
                 if(appClass.filename == ''):
                     appClass.filenamePopup = True
-                    #appClass.filenameBox()
                 else:
-                    # file = open(appClass.filename, 'w')
-                    # file.write(appClass.textBox.toPlainText())
-                    # file.close()
                     save(appClass.filename, appClass.textBox.toPlainText())
+            elif name == "save_as":
+                appClass.hasShownFilenamePopup = False
+                appClass.filenamePopup = True
+                alt = False
 
         except AttributeError:
             pass
-        try:
-            print('Alphanumeric key pressed: {0} '.format(
-                key.char))
-        except AttributeError:
-            print('special key pressed: {0}'.format(
-                key))
-
 
     def on_release(key):
         if appClass.window.isActiveWindow() == False:
@@ -53,9 +47,6 @@ class Keyboard():
             ctrl = False
         elif(key == keyboard.Key.alt):
             alt = False
-
-        print('Key released: {0}'.format(
-            key))
 
     def initKeyboard(self,app):
         global window

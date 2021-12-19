@@ -18,6 +18,7 @@ import threading
 
 from modules.filenamePopup import *
 from modules.ui import *
+from modules.hotkeys import initHotkeys
 
 class App():
     
@@ -28,6 +29,8 @@ class App():
         self.filename = ''
         self.filenamePopup = False
         self.hasShownFilenamePopup = False
+
+        initHotkeys()
 
         initUI(self)
 

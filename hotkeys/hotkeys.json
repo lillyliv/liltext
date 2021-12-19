@@ -1,0 +1,16 @@
+{
+    "hotkeys": [
+        {
+            "ctrl":true,
+            "alt":false,
+            "key": "s",
+            "name": "save"
+        },
+        {
+            "ctrl":false,
+            "alt":true,
+            "key": "s",
+            "name": "save_as"
+        }
+    ]
+}
