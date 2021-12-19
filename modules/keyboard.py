@@ -7,6 +7,13 @@ from PyQt5.QtWidgets import *
 
 from .save import *
 from .hotkeys import *
+
+def cleanModifiers():
+    global ctrl
+    global alt
+    ctrl = False
+    alt = False
+
 class Keyboard():
     def __init__(self):
         print('started keyboard')
@@ -25,15 +32,15 @@ class Keyboard():
         try:
             name = getHotkey(ctrl, alt, key.char)
             if name == "save":
-                ctrl = False
+                cleanModifiers()
                 if(appClass.filename == ''):
                     appClass.filenamePopup = True
                 else:
                     save(appClass.filename, appClass.textBox.toPlainText())
             elif name == "save_as":
+                cleanModifiers()
                 appClass.hasShownFilenamePopup = False
                 appClass.filenamePopup = True
-                alt = False
 
         except AttributeError:
             pass
