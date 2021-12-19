@@ -2,7 +2,7 @@
 
 Text editor and development tools by Lilly (lillyliv#5756)
 
-Version α (alpha)
+Version β (beta)
 
 '''
 
@@ -16,7 +16,10 @@ import json
 
 import threading
 
+from pynput import keyboard
+
 from modules.editor import *
+from modules.keyboard import *
 
 def set_interval(func, arg, sec):
     def func_wrapper():
@@ -32,7 +35,8 @@ class App():
         self.title = "app"
         self.localeFile = open('./locale/english.json')
         self.locale = json.load(self.localeFile)
-
+        self.filename = 'test.txt'        
+        #initKeyboard()
         self.initUI()
 
     def initUI(self):
@@ -40,6 +44,8 @@ class App():
         self.window = QWidget()
         self.window.setGeometry(100,100,300,300)
         self.window.setWindowTitle(self.locale["titleSuffix"])
+        self.window.setFocus()
+        print(self.window.isActiveWindow())
 
         '''
         self.textBox = QTextEdit()
@@ -54,9 +60,12 @@ class App():
         self.layout = QVBoxLayout()  # add text box to window layout
         self.layout.addWidget(self.textBox)
         self.window.setLayout(self.layout)
+        
+        keyboard = Keyboard        
+        keyboard.initKeyboard(keyboard, self)
 
         self.window.show()
-    
+
         sys.exit(app.exec_())
 
 if __name__ == '__main__':

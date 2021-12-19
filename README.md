@@ -10,5 +10,5 @@ simply run
 python3 app.py
 ```
 
-dependencies are PyQt5
+dependencies are PyQt5 and pynput
 # liltext
