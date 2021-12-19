@@ -1,10 +1,16 @@
 from pynput import keyboard
 from pynput.keyboard import Key, Controller
 
+from PyQt5.QtCore import *
+from PyQt5.QtGui import *
+from PyQt5.QtWidgets import *
+
 class Keyboard():
     def __init__(self):
         print('started keyboard')
     def on_press(key):
+        global appClass
+
         if appClass.window.isActiveWindow() == False:
             return
 
@@ -18,9 +24,14 @@ class Keyboard():
             if ctrl == True and key.char == 's':
                 #save(appClass.filename, appClass.textBox.toPlainText())
                 #def save(appClass.filename, appClass.textBox.toPlainText()):
-                file = open(appClass.filename, 'w')
-                file.write(appClass.textBox.toPlainText())
-                file.close()
+                
+                if(appClass.filename == ''):
+                    appClass.filenamePopup = True
+                    #appClass.filenameBox()
+                else:
+                    file = open(appClass.filename, 'w')
+                    file.write(appClass.textBox.toPlainText())
+                    file.close()
 
         except AttributeError:
             pass

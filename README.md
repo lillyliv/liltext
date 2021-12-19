@@ -1,4 +1,4 @@
-#LilText
+# LilText
 
 ## Running the project
 
@@ -11,4 +11,3 @@ python3 app.py
 ```
 
 dependencies are PyQt5 and pynput
-# liltext
