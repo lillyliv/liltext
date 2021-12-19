@@ -5,6 +5,8 @@ from PyQt5.QtCore import *
 from PyQt5.QtGui import *
 from PyQt5.QtWidgets import *
 
+from .save import *
+
 class Keyboard():
     def __init__(self):
         print('started keyboard')
@@ -26,9 +28,10 @@ class Keyboard():
                     appClass.filenamePopup = True
                     #appClass.filenameBox()
                 else:
-                    file = open(appClass.filename, 'w')
-                    file.write(appClass.textBox.toPlainText())
-                    file.close()
+                    # file = open(appClass.filename, 'w')
+                    # file.write(appClass.textBox.toPlainText())
+                    # file.close()
+                    save(appClass.filename, appClass.textBox.toPlainText())
 
         except AttributeError:
             pass

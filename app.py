@@ -16,9 +16,8 @@ import json
 
 import threading
 
-from modules.editor import *
-from modules.keyboard import *
 from modules.filenamePopup import *
+from modules.ui import *
 
 class App():
     
@@ -30,39 +29,13 @@ class App():
         self.filenamePopup = False
         self.hasShownFilenamePopup = False
 
-
-        self.initUI()
+        initUI(self)
 
     def filenamePopupCheck(self):
         if self.filenamePopup == True:
 
             popup = filenamePopup()
             popup.checkFilenameBox(self)
-
-    def initUI(self):
-        app = QApplication(sys.argv)  # make window and set title
-        self.window = QWidget()
-        self.window.setGeometry(100,100,300,300)
-        self.window.setWindowTitle(self.filename + " : " + self.locale["title_suffix"])
-        self.window.setFocus()
-        print(self.window.isActiveWindow())
-
-        initEditor(self)
-
-        self.layout = QVBoxLayout()  # add text box to window layout
-        self.layout.addWidget(self.textBox)
-        self.window.setLayout(self.layout)
-        
-        keyboard = Keyboard        
-        keyboard.initKeyboard(keyboard, self)
-
-        self.timer = QTimer()
-        self.timer.timeout.connect(self.filenamePopupCheck)
-        self.timer.start(100)
-
-        self.window.show()
-
-        sys.exit(app.exec_())
 
 if __name__ == '__main__':
     app = App()

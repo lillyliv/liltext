@@ -2,11 +2,14 @@ from PyQt5.QtCore import *
 from PyQt5.QtGui import *
 from PyQt5.QtWidgets import *
 
+from .save import *
+
 def setFilename():
     global appClass
     print('setting filename')
     appClass.filename = appClass.filenameTextBox.toPlainText()
     appClass.filenameWindow.close()
+    save(appClass.filename, appClass.textBox.toPlainText())
 
 class filenamePopup():
     def __init__(self):
