@@ -35,7 +35,8 @@ class App():
         initHotkeys()
 
         initUI(self)
-
+    def frame(self):
+        self.filenamePopupCheck()
     def filenamePopupCheck(self):
         if self.filenamePopup == True:
 

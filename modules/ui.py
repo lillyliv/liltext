@@ -5,6 +5,7 @@ from PyQt5.QtWidgets import *
 from modules.editor import *
 from modules.keyboard import *
 from modules.highlighting import *
+
 import sys
 
 def initUI(appClass):
@@ -16,6 +17,7 @@ def initUI(appClass):
         appClass.window.setWindowTitle("Untitled : " + appClass.locale["title_suffix"])
     else:
         appClass.window.setWindowTitle(appClass.filename + " : " + appClass.locale["title_suffix"])
+
     appClass.window.setFocus()
 
     print(appClass.window.isActiveWindow())
@@ -31,7 +33,7 @@ def initUI(appClass):
     highlight = PythonHighlighter(appClass.textBox.document())
 
     appClass.timer = QTimer()  # init filename popup box checks should also move this
-    appClass.timer.timeout.connect(appClass.filenamePopupCheck)
+    appClass.timer.timeout.connect(appClass.frame)
     appClass.timer.start(100)
 
     appClass.window.show()

@@ -25,6 +25,7 @@ class Keyboard():
         try:
             name = getHotkey(ctrl, alt, key.char)
             if name == "save":
+                ctrl = False
                 if(appClass.filename == ''):
                     appClass.filenamePopup = True
                 else:
