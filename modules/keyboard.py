@@ -22,9 +22,6 @@ class Keyboard():
             alt = True
         try:
             if ctrl == True and key.char == 's':
-                #save(appClass.filename, appClass.textBox.toPlainText())
-                #def save(appClass.filename, appClass.textBox.toPlainText()):
-                
                 if(appClass.filename == ''):
                     appClass.filenamePopup = True
                     #appClass.filenameBox()
