@@ -11,7 +11,11 @@ def initUI(appClass):
     app = QApplication(sys.argv)  # make window and set title
     appClass.window = QWidget()
     appClass.window.setGeometry(100,100,300,300)
-    appClass.window.setWindowTitle(appClass.filename + " : " + appClass.locale["title_suffix"])
+
+    if appClass.filename == '':
+        appClass.window.setWindowTitle("Untitled : " + appClass.locale["title_suffix"])
+    else:
+        appClass.window.setWindowTitle(appClass.filename + " : " + appClass.locale["title_suffix"])
     appClass.window.setFocus()
 
     print(appClass.window.isActiveWindow())

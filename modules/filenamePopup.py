@@ -9,7 +9,7 @@ def setFilename():
     print('setting filename')
     appClass.filename = appClass.filenameTextBox.toPlainText()
     appClass.filenameWindow.close()
-    save(appClass.filename, appClass.textBox.toPlainText())
+    save(appClass.filename, appClass.textBox.toPlainText(), appClass)
 
 class filenamePopup():
     def __init__(self):
