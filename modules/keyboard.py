@@ -7,6 +7,7 @@ from PyQt5.QtWidgets import *
 
 from .save import *
 from .hotkeys import *
+from .tabs import *
 
 def cleanModifiers():
     global ctrl
@@ -36,11 +37,17 @@ class Keyboard():
                 if(appClass.filename == ''):
                     appClass.filenamePopup = True
                 else:
-                    save(appClass.filename, appClass.textBox.toPlainText())
+                    save(appClass.filename, appClass.textBox.toPlainText(), appClass)
             elif name == "save_as":
                 cleanModifiers()
                 appClass.hasShownFilenamePopup = False
                 appClass.filenamePopup = True
+            elif name == "tab_left":
+                cleanModifiers()
+                appClass.tabLeft = True
+            elif name == "tab_right":
+                cleanModifiers()
+                appClass.tabRight = True
 
         except AttributeError:
             pass

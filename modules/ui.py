@@ -5,6 +5,7 @@ from PyQt5.QtWidgets import *
 from modules.editor import *
 from modules.keyboard import *
 from modules.highlighting import *
+from modules.tabs import *
 
 import sys
 
@@ -25,6 +26,8 @@ def initUI(appClass):
     initEditor(appClass)   # init editor and keyboard should probabally move this elsewhere
     keyboard = Keyboard        
     keyboard.initKeyboard(keyboard, appClass)
+
+    initTabs()
 
     appClass.layout = QVBoxLayout()  # add text box to window layout
     appClass.layout.addWidget(appClass.textBox)

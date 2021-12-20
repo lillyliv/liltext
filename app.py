@@ -2,7 +2,7 @@
 
 Text editor and development tools by Lilly (lillyliv#5756)
 
-Version Γ (gamma)
+Version δ (delta)
 
 '''
 
@@ -30,6 +30,8 @@ class App():
         self.filename = ''
         self.filenamePopup = False
         self.hasShownFilenamePopup = False
+        self.tabLeft = False
+        self.tabRight = False
 
         initStyle(self)
         initHotkeys()
@@ -37,6 +39,10 @@ class App():
         initUI(self)
     def frame(self):
         self.filenamePopupCheck()
+        if(self.tabLeft):
+            tabLeft(self)
+        elif(self.tabRight):
+            tabRight(self)
     def filenamePopupCheck(self):
         if self.filenamePopup == True:
 

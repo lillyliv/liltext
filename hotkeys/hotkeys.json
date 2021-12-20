@@ -11,6 +11,18 @@
             "alt":true,
             "key": "s",
             "name": "save_as"
+        },
+        {
+            "ctrl":true,
+            "alt":true,
+            "key":"a",
+            "name":"tab_left"
+        },
+        {
+            "ctrl":true,
+            "alt":true,
+            "key":"s",
+            "name":"tab_right"
         }
     ]
 }
