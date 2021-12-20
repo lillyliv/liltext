@@ -1,34 +1,27 @@
-def initTabs():
-    global currentTab
-    global tabs
-
-    currentTab = 0
-    tabs = ['']
+def initTabs(appClass):
+    appClass.currentTab = 0
+    appClass.tabs = ['']
+    appClass.tabNames = ['']
 
 def tabLeft(appClass):
-    global currentTab
-    global tabs
-
     appClass.tabLeft = False
 
-    tabs[currentTab] = appClass.textBox.toPlainText()
+    appClass.tabs[appClass.currentTab] = appClass.textBox.toPlainText()
 
-    if currentTab == 0:
+    if appClass.currentTab == 0:
         return
     else:
-        currentTab = currentTab - 1
-        appClass.textBox.setText(tabs[currentTab])
+        appClass.currentTab = appClass.currentTab - 1
+        appClass.textBox.setText(appClass.tabs[appClass.currentTab])
 
 def tabRight(appClass):
-    global currentTab
-    global tabs
-
     appClass.tabRight = False
 
-    if(len(tabs) <= currentTab + 1):
-        tabs.append('')
+    if(len(appClass.tabs) <= appClass.currentTab + 1):
+        appClass.tabs.append('')
+        appClass.tabNames.append('')
 
-    tabs[currentTab] = appClass.textBox.toPlainText()
+    appClass.tabs[appClass.currentTab] = appClass.textBox.toPlainText()
 
-    currentTab = currentTab + 1
-    appClass.textBox.setText(tabs[currentTab])
+    appClass.currentTab = appClass.currentTab + 1
+    appClass.textBox.setText(appClass.tabs[appClass.currentTab])

@@ -14,10 +14,10 @@ def initUI(appClass):
     appClass.window = QWidget()
     appClass.window.setGeometry(100,100,300,300)
 
-    if appClass.filename == '':
+    if appClass.tabNames[appClass.currentTab] == '':
         appClass.window.setWindowTitle("Untitled : " + appClass.locale["title_suffix"])
     else:
-        appClass.window.setWindowTitle(appClass.filename + " : " + appClass.locale["title_suffix"])
+        appClass.window.setWindowTitle(appClass.tabNames[appClass.currentTab] + " : " + appClass.locale["title_suffix"])
 
     appClass.window.setFocus()
 
@@ -27,7 +27,7 @@ def initUI(appClass):
     keyboard = Keyboard        
     keyboard.initKeyboard(keyboard, appClass)
 
-    initTabs()
+    initTabs(appClass)
 
     appClass.layout = QVBoxLayout()  # add text box to window layout
     appClass.layout.addWidget(appClass.textBox)

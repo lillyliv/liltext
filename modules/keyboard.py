@@ -34,10 +34,10 @@ class Keyboard():
             name = getHotkey(ctrl, alt, key.char)
             if name == "save":
                 cleanModifiers()
-                if(appClass.filename == ''):
+                if(appClass.tabNames[appClass.currentTab] == ''):
                     appClass.filenamePopup = True
                 else:
-                    save(appClass.filename, appClass.textBox.toPlainText(), appClass)
+                    save(appClass.tabNames[appClass.currentTab], appClass.textBox.toPlainText(), appClass)
             elif name == "save_as":
                 cleanModifiers()
                 appClass.hasShownFilenamePopup = False

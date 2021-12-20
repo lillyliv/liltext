@@ -7,9 +7,9 @@ from .save import *
 def setFilename():
     global appClass
     print('setting filename')
-    appClass.filename = appClass.filenameTextBox.toPlainText()
+    appClass.tabNames[appClass.currentTab] = appClass.filenameTextBox.toPlainText()
     appClass.filenameWindow.close()
-    save(appClass.filename, appClass.textBox.toPlainText(), appClass)
+    save(appClass.tabNames[appClass.currentTab], appClass.textBox.toPlainText(), appClass)
 def cancel():
     global appClass
     appClass.hasShownFilenamePopup = False

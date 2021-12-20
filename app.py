@@ -32,6 +32,9 @@ class App():
         self.hasShownFilenamePopup = False
         self.tabLeft = False
         self.tabRight = False
+        self.currentTab = 0
+        self.tabs = ['']
+        self.tabNames = ['']
 
         initStyle(self)
         initHotkeys()
@@ -43,6 +46,9 @@ class App():
             tabLeft(self)
         elif(self.tabRight):
             tabRight(self)
+        
+        self.window.setWindowTitle(self.tabNames[self.currentTab] + " : " + self.locale["title_suffix"])
+
     def filenamePopupCheck(self):
         if self.filenamePopup == True:
 
